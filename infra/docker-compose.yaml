@@ -10,9 +10,7 @@ services:
     container_name: postgres_db
 
   web:
-    build:
-      context: ../api_yamdb/
-      dockerfile: Dockerfile
+    image: drode1/api_yamdb:latest
     restart: always
     volumes:
       - static_value:/app/static/
