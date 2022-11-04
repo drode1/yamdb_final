@@ -13,14 +13,14 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 from reviews.models import Category, Genre, Review, Title
 from users.models import User
+
 from .filters import TitleFilter
 from .permissions import IsAdminOrReadOnly, IsCustomAdminUser, IsUserOrAdmin
 from .serializers import (CategorySerializer, CommentSerializer,
-                          GenreSerializer, ObtainUserTokenSerializer,
-                          ReviewSerializer, UserRegisterSerializer,
-                          UserSerializer,
-                          SelfUserSerializer, ReadTitleSerializer,
-                          CreateTitleSerializer)
+                          CreateTitleSerializer, GenreSerializer,
+                          ObtainUserTokenSerializer, ReadTitleSerializer,
+                          ReviewSerializer, SelfUserSerializer,
+                          UserRegisterSerializer, UserSerializer)
 
 
 class CreateListDestroyViewSet(mixins.CreateModelMixin,
@@ -65,8 +65,7 @@ class TitleViewSet(viewsets.ModelViewSet):
     def get_serializer_class(self):
         if self.request.method == 'GET':
             return ReadTitleSerializer
-        else:
-            return CreateTitleSerializer
+        return CreateTitleSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):

@@ -72,6 +72,7 @@ class ReadTitleSerializer(serializers.ModelSerializer):
         )
         if reviews:
             return sum(scores_for_title) / reviews.count()
+        return None
 
 
 class UserSerializer(serializers.ModelSerializer):
