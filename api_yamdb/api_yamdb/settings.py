@@ -8,12 +8,11 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'test-key')
 
-DEBUG = False
+DEBUG = os.getenv("DEBUG")
 
-if DEBUG:
-    ALLOWED_HOSTS = ['*']
-else:
-    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*']
+if not DEBUG:
+    ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split()
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -61,15 +60,22 @@ TEMPLATES = [
 WSGI_APPLICATION = 'api_yamdb.wsgi.application'
 
 DATABASES = {
-    'default': {
+    'dev': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'production': {
         'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
         'NAME': os.getenv('DB_NAME', 'postgres'),
         'USER': os.getenv('POSTGRES_USER', 'postgres'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'postgres'),
         'HOST': os.getenv('DB_HOST', 'db'),
         'PORT': os.getenv('DB_PORT', '5432')
-    }
+    },
 }
+
+DATABASES['default'] = DATABASES['dev' if DEBUG else 'production']
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
