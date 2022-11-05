@@ -12,7 +12,7 @@ DEBUG = os.getenv("DEBUG")
 
 ALLOWED_HOSTS = ['*']
 if not DEBUG:
-    ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(',')
+    ALLOWED_HOSTS = str(os.getenv("ALLOWED_HOSTS")).split()
 
 INSTALLED_APPS = [
     'django.contrib.admin',
