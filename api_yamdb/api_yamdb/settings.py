@@ -8,7 +8,12 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'test-key')
 
-DEBUG = os.getenv("DEBUG")
+STR_TO_BOOL = {
+    'FALSE': False,
+    'TRUE': True
+}
+
+DEBUG = STR_TO_BOOL[os.getenv('DEBUG', default='FALSE').upper()]
 
 ALLOWED_HOSTS = ['*']
 if not DEBUG:
