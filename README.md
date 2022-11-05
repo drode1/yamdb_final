@@ -2,6 +2,7 @@
 
 ![Workflow](https://github.com/drode1/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
+#### Посмотреть проект можно здесь [eremezov.ru](https://eremezov.ru)
 ### Краткое описание проекта
 
 Учебный проект API для социальной сети. Пользователи могут публиковать посты,
@@ -189,11 +190,10 @@ python manage.py import
 
 ___
 
-## Команда
+## Контакты
 
-- [Антон Росляков](https://github.com/Antonros)
 - [Егор Ремезов](https://github.com/drode1)
-- [Павел Зияев](https://github.com/p0lzi)
-- [Яндекс Практикум](https://github.com/yandex-praktikum/)
+  - [Telegram](https://t.me/e_remezov)
+  - [Mail](mailto:info@eremezov.com)
 
 ___ 
