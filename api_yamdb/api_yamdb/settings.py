@@ -17,7 +17,7 @@ DEBUG = STR_TO_BOOL[os.getenv('DEBUG', default='FALSE').upper()]
 
 ALLOWED_HOSTS = ['*']
 if not DEBUG:
-    ALLOWED_HOSTS = str(os.getenv("ALLOWED_HOSTS")).split()
+    ALLOWED_HOSTS = str(os.getenv('ALLOWED_HOSTS')).split()
 
 INSTALLED_APPS = [
     'django.contrib.admin',
