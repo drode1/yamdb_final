@@ -148,3 +148,4 @@ dmypy.json
 # папка медиа
 media/
 
+/infra/data/
